@@ -1,0 +1,35 @@
+@import '../styles/mixins';
+
+label#switcher {
+    > input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    background-color: var(--primary-text-cl);
+    @include flex-box(flex-start, center);
+    width: 10%;
+    max-width: 3rem;
+    aspect-ratio: 2 / 1;
+    padding: 0.25rem;
+    transition: 0.4s;
+    position: absolute;
+    bottom: 3%;
+    right: 1%;
+    cursor: pointer;
+    border-radius: 1.25rem;
+
+    &::before {
+        content: '';
+        width: 50%;
+        aspect-ratio: 1 / 1;
+        background-color: var(--primary-bg);
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    &:has(input:checked)::before {
+        transform: translateX(100%);
+    }
+}

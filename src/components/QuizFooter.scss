@@ -1,0 +1,24 @@
+@import '../styles/mixins';
+
+div.question-footer {
+    @include flex-box(space-between, normal);
+
+    padding-block-start: 1rem;
+
+    span {
+        @include flex-box();
+    }
+
+    button#quit-button {
+        color: var(--primary-bg);
+        font-weight: bold;
+        padding: 0.625rem 1.875rem;
+        border: none;
+        border-radius: 3.125rem;
+        background-color: var(--incorrect-bg);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

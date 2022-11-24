@@ -1,0 +1,139 @@
+@import '../styles/mixins';
+
+div.current-question-container {
+    border-block: 0.0625rem solid;
+
+    h1.question {
+        font-size: clamp(1rem, 2.5vw, 1.8rem);
+        padding-block: 1.5rem;
+        text-align: center;
+    }
+    ul.answers {
+        list-style: none;
+        // --------------------------
+        display: grid;
+        grid-auto-rows: 4.375rem;
+        grid-auto-columns: 1fr;
+        grid-template-areas:
+            'a b'
+            'c d';
+        // --------------------------
+        // grid-auto-flow: column;
+        // ще си има два реда, ако има повече от 2 деца ще почне да ги бута по колони -
+        // 1 3 5 7
+        // 2 4 6 8 примерно
+        // --------------------------
+        grid-gap: 2.5rem;
+        // col gap-ът не действа като падинг, а напротив - свива децата, защото както тръгват в случая по колони най-вероятно са по 1fr width всичките
+        // row gap-ът не ги свива
+
+        padding-block: clamp(0.5rem, 3vw, 3rem);
+
+        &.answered {
+            .answer:hover {
+                cursor: not-allowed;
+            }
+        }
+
+        &:not(.answered) {
+            .answer:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+                background-color: var(--question-bg-hover);
+            }
+        }
+
+        &:has(.selected) {
+            .answer.right {
+                transform: scale(1.1);
+            }
+            .answer:is(.right, .selected)::before {
+                transform: scaleX(1);
+            }
+        }
+
+        > li.answer {
+            &:nth-child(1) {
+                grid-area: a;
+            }
+            &:nth-child(2) {
+                grid-area: b;
+            }
+            &:nth-child(3) {
+                grid-area: c;
+            }
+            &:nth-child(4) {
+                grid-area: d;
+            }
+
+            display: none;
+            background-color: var(--question-bg);
+            border-radius: 624.9375rem;
+            overflow: hidden; // за sliding-а при отговор
+            transition: all 0.3s;
+            position: relative;
+
+            &.hinted {
+                box-shadow: 0rem 0rem 0.4rem 0.5625rem var(--correct-bg);
+            }
+
+            &.hinted.selected {
+                background-color: var(--correct-bg);
+                //иначе имаше мн гадна синя граница между зеления outline и разпънатия зелен ::before
+            }
+
+            span {
+                color: var(--primary-text-cl);
+                text-align: center;
+                font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+                position: absolute;
+                width: 80%;
+                @include center-absolute();
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            // OLD, NOT WRONG!
+            // width: 80%;
+            // 90 % тук не са от ширината на перънта - ul -> а от мястото, което им е отредено в тяхната grid area -> затова и горе е justify-items center, иначе щяха да са възможно най-ляво на area-те си
+            // без width ще са супер малки - inline и защото горе имаме justify-items center, а и без 2-те пропъртита щяха да са си в пълен размер от 1fr
+
+            &.visible {
+                display: list-item;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                transform: scaleX(0);
+                transform-origin: left;
+                // откъде да тръгва -> origin - произход, дефолт е от център към страните
+                transition: transform 0.5s;
+            }
+
+            &.wrong::before {
+                background-color: var(--incorrect-bg);
+            }
+            &.right::before {
+                background-color: var(--correct-bg);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 45.625rem) {
+    div.question-container > div.current-question-container > ul.answers {
+        grid-auto-rows: 3.25rem;
+        grid-gap: 1.25rem;
+        grid-template-areas:
+            'a'
+            'b'
+            'c'
+            'd';
+
+        > li.answer {
+            border-radius: 0.625rem;
+        }
+    }
+}

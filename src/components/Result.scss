@@ -1,0 +1,67 @@
+@import '../styles/mixins';
+
+.results {
+    position: relative;
+    width: clamp(20rem, 80vw, 50rem);
+    @include flex-box(normal, normal, 2rem, column);
+
+    > :is(h1, h2) {
+        text-align: center;
+    }
+
+    h1 {
+        color: var(--primary-text-cl);
+    }
+
+    > h2 {
+        color: var(--secondary-bg);
+    }
+
+    > div.answers {
+        display: flex;
+        border-radius: 0.625rem;
+        overflow: hidden;
+
+        > span {
+            color: var(--primary-text-cl);
+            flex-basis: 0;
+            padding: 0.625rem;
+            @include flex-box(space-between, normal, 0.3rem);
+            font-weight: bold;
+
+            &.correct {
+                background-color: var(--correct-bg);
+            }
+
+            &.incorrect {
+                background-color: var(--incorrect-bg);
+            }
+        }
+    }
+
+    div.jokers {
+        > span {
+            color: var(--question-bg);
+            @include flex-box(space-between, normal);
+            border-bottom: 0.18rem solid;
+            padding: 1rem 0;
+            font-weight: bold;
+        }
+    }
+
+    > button {
+        padding-block: 1rem;
+        border-radius: 1.5625rem;
+        color: var(--primary-bg);
+        background-color: var(--secondary-bg);
+        border: 0.125rem solid;
+        font-size: 1em;
+        font-weight: bold;
+        transition: border-color 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            border-color: var(--secondary-bg);
+        }
+    }
+}

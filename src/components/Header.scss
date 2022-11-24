@@ -1,0 +1,25 @@
+@import '../styles/mixins';
+
+header {
+    min-width: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-block: 0.3125rem;
+    background-color: var(--header-bg);
+    @include flex-box();
+    box-shadow: 0 0 0.1875rem var(--header-shadow);
+
+    > img {
+        width: 10.625rem;
+    }
+}
+
+@media screen and (max-width: 45.625rem) {
+    header {
+        > img {
+            width: 8.75rem;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@import '../styles/mixins';
+
+div.question-header {
+    @include flex-box(space-between, normal);
+    padding-block-start: 0.5rem;
+    padding-block-end: 1rem;
+    i.active {
+        font-weight: bold;
+        color: var(--question-bg);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

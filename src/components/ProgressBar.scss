@@ -1,0 +1,71 @@
+div.bar-wrapper {
+    position: relative;
+    height: 0.313rem;
+    overflow: hidden;
+
+    div#progress-bar {
+        position: absolute;
+        inset-block: 0;
+        inset-inline: -0.313rem;
+
+        --animation-state: running;
+        animation-play-state: var(--animation-state);
+        animation-name: sliding;
+        animation-duration: 30s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        border-radius: 1.6rem;
+    }
+}
+
+@keyframes sliding {
+    0% {
+        width: 100%;
+        background-image: linear-gradient(
+            to right,
+            hsl(111, 100%, 30%),
+            hsl(111, 100%, 54%)
+        );
+    }
+    39% {
+        background-image: linear-gradient(
+            to right,
+            hsl(111, 100%, 30%),
+            hsl(111, 100%, 54%)
+        );
+    }
+    40% {
+        background-image: linear-gradient(
+            to right,
+            hsl(60, 100%, 30%),
+            hsl(60, 100%, 54%)
+        );
+    }
+    79% {
+        background-image: linear-gradient(
+            to right,
+            hsl(60, 100%, 30%),
+            hsl(60, 100%, 54%)
+        );
+    }
+    80% {
+        background-image: linear-gradient(
+            to right,
+            hsl(0, 100%, 30%),
+            hsl(0, 100%, 54%)
+        );
+    }
+    100% {
+        width: 0;
+        background-image: linear-gradient(
+            to right,
+            hsl(0, 100%, 30%),
+            hsl(0, 100%, 54%)
+        );
+    }
+}
+
+// hsl(111, 100%, 54%);
+// --incorrect-bg: hsl(0, 100%, 54%);
+
+// 30

@@ -1,0 +1,73 @@
+@import '../styles/mixins';
+
+div.select {
+    position: relative;
+    background-color: hsl(222, 17%, 20%);
+    font-weight: bold;
+    @include flex-box();
+    border: 0.125rem hsl(222, 17%, 20%) solid;
+    border-radius: 0.5em;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: hsl(220, 13%, 23%);
+    }
+
+    .caret {
+        width: 0;
+        height: 0;
+        border-inline: 0.3125rem solid transparent;
+        border-top: 0.375rem solid;
+        transition: 0.3s;
+        position: absolute;
+        right: 5%;
+
+        &.caret-rotate {
+            transform: rotate(180deg);
+        }
+    }
+
+    &.select-clicked {
+        border: 0.125rem var(--secondary-bg) solid;
+        box-shadow: 0 0 0.8em var(--secondary-bg);
+    }
+
+    ul.menu {
+        color: hsl(0, 0%, 70%);
+        position: absolute;
+        width: 100%;
+        top: 110%;
+        box-sizing: border-box;
+        list-style: none;
+        padding: 0.2em 0.5em;
+        background-color: hsl(220, 13%, 23%);
+        border: 0.125rem hsl(222, 11%, 24%) solid;
+        box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+        border-radius: 0.5em;
+        opacity: 0;
+        display: none;
+        transition: 0.5s;
+        z-index: 1; // иначе на mobile 2рия дропдаун изпъква над опциите от отвореното първо меню
+
+        &.menu-open {
+            display: block;
+            opacity: 1;
+        }
+
+        li {
+            padding: 0.7em 0.5em;
+            // беше 1em 0.5em, но на mobile switch-а застава пред отворено меню за категории, не успях да го оправя със z-index
+            margin-block: 0.3em;
+            border-radius: 0.5em;
+            cursor: pointer;
+            &:hover {
+                background-color: hsl(224, 12%, 19%);
+            }
+            &.active {
+                background-color: hsl(231, 9%, 15%);
+            }
+        }
+    }
+}

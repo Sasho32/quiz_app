@@ -1,0 +1,39 @@
+@import './styles/mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div#root {
+    --header-bg: hsl(0, 0%, 100%);
+    --header-shadow: hsl(0, 0%, 0%);
+    --primary-bg: hsl(0, 0%, 95%);
+    --secondary-bg: hsl(16, 100%, 50%);
+    --primary-text-cl: hsl(0, 0%, 12%);
+    --question-bg: hsl(190, 50%, 60%);
+    --question-bg-hover: hsl(190, 50%, 40%);
+    --correct-bg: hsl(111, 100%, 54%);
+    --incorrect-bg: hsl(0, 100%, 54%);
+
+    &:has(label#switcher > input:checked) {
+        --header-bg: hsl(0, 0%, 10%);
+        --header-shadow: hsl(0, 0%, 35%);
+        --primary-bg: hsl(0, 0%, 12%);
+        --secondary-bg: hsl(60, 53%, 61%);
+        --primary-text-cl: hsl(0, 0%, 95%);
+        --question-bg: hsl(240, 60%, 60%);
+        --question-bg-hover: hsl(240, 60%, 40%);
+        --correct-bg: hsl(111, 100%, 30%);
+        --incorrect-bg: hsl(0, 100%, 30%);
+    }
+}
+
+div#root {
+    position: relative; // за модала
+    background-color: var(--primary-bg);
+    min-width: 20rem;
+    min-height: 100vh;
+    @include flex-box();
+    font-family: Helvetica, sans-serif;
+}

@@ -1,0 +1,26 @@
+@import '../styles/mixins';
+
+div#error {
+    width: clamp(18.75rem, 80%, 30rem);
+    padding: clamp(3rem, 10vw, 4rem) 1rem;
+    border-radius: 0.75rem;
+    background-color: hsl(348, 83%, 50%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.3125rem 0.9375rem;
+    @include flex-box(normal, center, 3rem, column);
+
+    > button {
+        font-size: inherit;
+        padding: 0.4rem 2.5rem;
+        background-color: hsl(0, 0%, 40%);
+        color: inherit;
+        border: none;
+        border-radius: 0.625rem;
+        transition: background-color 500ms;
+
+        &:hover {
+            cursor: pointer;
+            background-color: hsl(0, 0%, 20%);
+        }
+    }
+}
