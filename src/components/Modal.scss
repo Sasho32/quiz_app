@@ -13,7 +13,7 @@ div.modal-background {
     div.modal-container {
         position: relative;
         width: clamp(18.75rem, 80%, 30rem);
-        padding: clamp(3rem, 10vw, 5rem) 0rem;
+        padding: clamp(3rem, 10vw, 5rem) 1rem;
         border-radius: 0.75rem;
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.3125rem 0.9375rem;
