@@ -29,7 +29,7 @@ div.current-question-container {
 
         padding-block: clamp(0.5rem, 3vw, 3rem);
 
-        &:has(.selected) {
+        &.selected {
             .answer.right {
                 transform: scale(1.1);
             }

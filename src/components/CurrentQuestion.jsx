@@ -75,7 +75,11 @@ function CurrentQuestion(
     return (
         <div className="current-question-container">
             <h1 className="question">{question}</h1>
-            <ul className={`answers ${answered ? 'answered' : ''}`}>
+            <ul
+                className={`answers ${answered ? 'answered' : ''} ${
+                    selected !== '' ? 'selected' : ''
+                }`}
+            >
                 {shuffledAnswers.map((answer, index) => {
                     return (
                         <li
