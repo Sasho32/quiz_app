@@ -29,20 +29,6 @@ div.current-question-container {
 
         padding-block: clamp(0.5rem, 3vw, 3rem);
 
-        &.answered {
-            .answer:hover {
-                cursor: not-allowed;
-            }
-        }
-
-        &:not(.answered) {
-            .answer:hover {
-                transform: scale(1.1);
-                cursor: pointer;
-                background-color: var(--question-bg-hover);
-            }
-        }
-
         &:has(.selected) {
             .answer.right {
                 transform: scale(1.1);
@@ -134,6 +120,22 @@ div.current-question-container {
 
         > li.answer {
             border-radius: 0.625rem;
+        }
+    }
+}
+
+@media (hover: hover) {
+    ul.answered {
+        .answer:hover {
+            cursor: not-allowed;
+        }
+    }
+
+    ul:not(.answered) {
+        .answer:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            background-color: var(--question-bg-hover);
         }
     }
 }
