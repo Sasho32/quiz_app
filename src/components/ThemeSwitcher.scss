@@ -29,7 +29,7 @@ label#switcher {
         border-radius: 50%;
     }
 
-    &:has(input:checked)::before {
+    &.dark::before {
         transform: translateX(100%);
     }
 }

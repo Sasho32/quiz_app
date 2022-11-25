@@ -36,6 +36,10 @@
 
             &:hover {
                 background-color: #323741;
+
+                &:not(:focus) {
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -51,7 +55,7 @@
         border: 0.125rem solid var(--primary-bg);
         font-size: 1em;
         font-weight: bold;
-        transition: border-color 0.5s;
+        transition: border-color 300ms;
 
         &:hover {
             cursor: pointer;

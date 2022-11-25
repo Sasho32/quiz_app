@@ -5,6 +5,7 @@ import Statistics from './components/Statistics';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { getUserInfo } from './utils/user';
 import AppContext from './AppContext';
+import './App.scss';
 
 function App() {
     const [started, setStarted] = useState(false);
@@ -32,7 +33,7 @@ function App() {
     }
 
     return (
-        <>
+        <div id="theme">
             <Header />
             {!started && (
                 <Form
@@ -52,7 +53,7 @@ function App() {
                 </AppContext.Provider>
             )}
             <ThemeSwitcher />
-        </>
+        </div>
     );
 }
 
