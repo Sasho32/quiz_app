@@ -49,6 +49,8 @@ function Quiz({ updateHintCnt, endQuiz }) {
     }
 
     function playBar() {
+        //иначе при отговорен въпрос и паузиран таймер - ако натиснем Quit и No пак ще го активира
+        if (currentQuestionRef.current.answered) return;
         barRef.current.style.setProperty('--animation-state', 'running');
     }
 
