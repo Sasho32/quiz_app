@@ -1,6 +1,8 @@
 @import '../styles/mixins';
 
 .form-container {
+    --_text-cl: hsl(0, 0%, 70%);
+
     width: clamp(18.75rem, 90vw, 87.5rem);
     @include flex-box(center, center, 15.625rem, column);
 
@@ -11,7 +13,7 @@
 
         > input,
         div.select {
-            color: hsl(0, 0%, 95%);
+            color: var(--_text-cl);
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 100%;
@@ -22,20 +24,24 @@
 
         input {
             text-align: center;
-            background-color: hsl(222, 17%, 20%);
-            font-weight: bold;
-            border: 0.125rem hsl(222, 17%, 20%) solid;
+            background-color: hsl(222, 17%, 25%);
+
+            font-weight: 700;
+            border: none;
             border-radius: 0.5em;
             padding: 1rem;
             outline: none;
 
+            &::placeholder {
+                color: var(--_text-cl);
+            }
+
             &:focus {
-                border: 0.125rem var(--secondary-bg) solid;
                 box-shadow: 0 0 0.8em var(--secondary-bg);
             }
 
             &:hover {
-                background-color: #323741;
+                background-color: hsl(222, 17%, 20%);
 
                 &:not(:focus) {
                     cursor: pointer;
@@ -46,15 +52,17 @@
 
     button {
         border-radius: 1.5625rem;
-        width: 40%;
+        // width: 40%;
+        padding: 1rem 5rem;
         max-width: 56.25rem;
         height: 3.4375rem;
 
-        color: var(--primary-bg);
+        // color: var(--primary-bg);
         background-color: var(--secondary-bg);
-        border: 0.125rem solid var(--primary-bg);
+        // border: 0.125rem solid var(--primary-bg);
+        border: none;
         font-size: 1em;
-        font-weight: bold;
+        font-weight: 700;
         transition: border-color 300ms;
 
         &:hover {
@@ -79,10 +87,6 @@
                 height: 1.875rem;
                 max-width: 90%; // защото иначе отстава онзи rule отгоре max-width: 31.25rem
             }
-        }
-
-        button {
-            width: 90%;
         }
     }
 }

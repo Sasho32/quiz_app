@@ -14,7 +14,12 @@
     }
 
     > h2 {
-        color: var(--secondary-bg);
+        color: var(--primary-text-cl);
+        font-weight: 300;
+
+        > span {
+            font-weight: 700;
+        }
     }
 
     > div.answers {
@@ -23,11 +28,12 @@
         overflow: hidden;
 
         > span {
-            color: var(--primary-text-cl);
+            // color: var(--primary-text-cl);
+            color: hsl(0, 0%, 12%);
             flex-basis: 0;
             padding: 0.625rem;
             @include flex-box(space-between, normal, 0.3rem);
-            font-weight: bold;
+            font-weight: 700;
 
             &.correct {
                 background-color: var(--correct-bg);
@@ -41,23 +47,27 @@
 
     div.jokers {
         > span {
-            color: var(--question-bg);
+            // color: var(--question-bg);
+            color: var(--primary-text-cl);
             @include flex-box(space-between, normal);
-            border-bottom: 0.18rem solid;
+            border-bottom: 0.07rem solid;
             padding: 1rem 0;
-            font-weight: bold;
+            font-weight: 600;
         }
     }
 
     > button {
         padding-block: 1rem;
         border-radius: 1.5625rem;
-        color: var(--primary-bg);
+        color: hsl(0, 0%, 12%);
         background-color: var(--secondary-bg);
-        border: 0.125rem solid;
+        border: none;
         font-size: 1em;
-        font-weight: bold;
+        font-weight: 600;
         transition: border-color 0.5s;
+        // width: 300px;
+        padding: 1rem 5rem;
+        align-self: center;
 
         &:hover {
             cursor: pointer;

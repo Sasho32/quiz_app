@@ -69,7 +69,9 @@ div.current-question-container {
             }
 
             span {
-                color: var(--primary-text-cl);
+                // color: var(--primary-text-cl);
+                color: hsl(0, 0%, 12%);
+                // сетвам го експлицитно, защото има приложен стил на един от родителските дивове, който се сменя според темата и да не се трие да не счупи цвета на друго дете
                 text-align: center;
                 font-size: clamp(0.8rem, 2.5vw, 1.2rem);
                 position: absolute;

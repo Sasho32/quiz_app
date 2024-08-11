@@ -4,23 +4,18 @@ div#theme {
     --header-bg: hsl(0, 0%, 100%);
     --header-shadow: hsl(0, 0%, 0%);
     --primary-bg: hsl(0, 0%, 95%);
-    --secondary-bg: hsl(16, 100%, 50%);
+    --secondary-bg: rgb(66, 184, 131);
     --primary-text-cl: hsl(0, 0%, 12%);
-    --question-bg: hsl(190, 50%, 60%);
+    --question-bg: hsl(190, 50%, 55%);
     --question-bg-hover: hsl(190, 50%, 40%);
-    --correct-bg: hsl(111, 100%, 54%);
-    --incorrect-bg: hsl(0, 100%, 54%);
+    --correct-bg: rgb(66, 184, 131);
+    --incorrect-bg: rgb(237, 67, 55);
 
     &.dark {
-        --header-bg: hsl(0, 0%, 10%);
+        --header-bg: hsl(0, 0%, 14%);
         --header-shadow: hsl(0, 0%, 35%);
-        --primary-bg: hsl(0, 0%, 12%);
-        --secondary-bg: hsl(60, 53%, 61%);
+        --primary-bg: hsl(0, 0%, 11%);
         --primary-text-cl: hsl(0, 0%, 95%);
-        --question-bg: hsl(240, 60%, 60%);
-        --question-bg-hover: hsl(240, 60%, 40%);
-        --correct-bg: hsl(111, 100%, 30%);
-        --incorrect-bg: hsl(0, 100%, 30%);
     }
 }
 
@@ -31,4 +26,19 @@ div#theme {
     min-height: 100vh;
     @include flex-box();
     font-family: Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    letter-spacing: -1.6px;
+}
+
+@media (width < 1000px) {
+    h1,
+    h2,
+    h3 {
+        letter-spacing: -1px;
+    }
 }

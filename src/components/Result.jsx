@@ -14,7 +14,8 @@ function Result({ statistics: { correctAnswers, hintsLeft } }) {
         <div className="results">
             <h1>CONGRATS, {username}!</h1>
             <h2>
-                Your result: {` ${((correctAnswers / 10) * 100).toFixed(2)}%`}
+                Your result:{' '}
+                <span>{` ${((correctAnswers / 10) * 100).toFixed(2)}%`}</span>
             </h2>
             <div className="answers">
                 <span
