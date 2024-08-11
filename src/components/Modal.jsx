@@ -8,10 +8,17 @@ function Modal({ message, closeModal, handleConfirm }) {
                     handleConfirm ? 'confirm' : 'info'
                 }`}
             >
-                <div onClick={closeModal} className="closing-x">
-                    &times;
-                </div>
-                <h1>{message}</h1>
+                {handleConfirm ? (
+                    <i className="fa-solid fa-triangle-exclamation"></i>
+                ) : (
+                    <>
+                        <div onClick={closeModal} className="closing-x">
+                            &times;
+                        </div>
+                        <i className="fa-solid fa-circle-info"></i>
+                    </>
+                )}
+                <span>{message}</span>
                 {handleConfirm && (
                     <div className="options">
                         <button onClick={handleConfirm}>Yes</button>

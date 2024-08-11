@@ -11,10 +11,6 @@ div.select {
     transition: background-color 0.3s;
     color: var(--_text-cl);
 
-    &:hover {
-        background-color: hsl(222, 17%, 20%);
-    }
-
     .caret {
         width: 0;
         height: 0;
@@ -63,14 +59,21 @@ div.select {
             margin-block: 0.3em;
             border-radius: 0.5em;
             cursor: pointer;
-            &:hover {
-                // background-color: hsl(224, 12%, 19%);
-                background-color: hsl(222, 17%, 20%);
-            }
+
             &.active {
                 // background-color: hsl(231, 9%, 15%);
                 background-color: hsl(222, 17%, 20%);
             }
         }
+    }
+}
+
+@media (pointer: fine) {
+    div.select:hover {
+        background-color: hsl(222, 17%, 20%);
+    }
+
+    div.select ul.menu li:hover {
+        background-color: hsl(222, 17%, 20%);
     }
 }

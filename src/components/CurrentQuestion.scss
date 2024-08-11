@@ -126,7 +126,7 @@ div.current-question-container {
     }
 }
 
-@media (hover: hover) {
+@media (pointer: fine) {
     ul.answered {
         .answer:hover {
             cursor: not-allowed;

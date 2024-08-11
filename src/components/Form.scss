@@ -20,6 +20,7 @@
             max-width: 31.25rem;
             box-sizing: border-box;
             height: 3.4375rem;
+            font-size: 1rem;
         }
 
         input {
@@ -37,15 +38,8 @@
             }
 
             &:focus {
+                border: 0.125rem var(--secondary-bg) solid;
                 box-shadow: 0 0 0.8em var(--secondary-bg);
-            }
-
-            &:hover {
-                background-color: hsl(222, 17%, 20%);
-
-                &:not(:focus) {
-                    cursor: pointer;
-                }
             }
         }
     }
@@ -53,7 +47,7 @@
     button {
         border-radius: 1.5625rem;
         // width: 40%;
-        padding: 1rem 5rem;
+        padding: 1rem 3rem;
         max-width: 56.25rem;
         height: 3.4375rem;
 
@@ -68,6 +62,16 @@
         &:hover {
             cursor: pointer;
             border-color: var(--secondary-bg);
+        }
+    }
+}
+
+@media (pointer: fine) {
+    .form-container .inputs-wrapper > input:hover {
+        background-color: hsl(222, 17%, 20%);
+
+        &:not(:focus) {
+            cursor: pointer;
         }
     }
 }
@@ -87,6 +91,12 @@
                 height: 1.875rem;
                 max-width: 90%; // защото иначе отстава онзи rule отгоре max-width: 31.25rem
             }
+        }
+
+        button {
+            border-radius: 1.5625rem;
+            // width: 40%;
+            padding: 1rem 2rem;
         }
     }
 }

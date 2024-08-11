@@ -57,7 +57,6 @@
     }
 
     > button {
-        padding-block: 1rem;
         border-radius: 1.5625rem;
         color: hsl(0, 0%, 12%);
         background-color: var(--secondary-bg);
@@ -66,12 +65,18 @@
         font-weight: 600;
         transition: border-color 0.5s;
         // width: 300px;
-        padding: 1rem 5rem;
+        padding: 1rem 3rem;
         align-self: center;
 
         &:hover {
             cursor: pointer;
             border-color: var(--secondary-bg);
         }
+    }
+}
+
+@media screen and (max-width: 45.625rem) {
+    .results > button {
+        padding: 1rem 2rem;
     }
 }

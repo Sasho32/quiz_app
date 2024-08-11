@@ -12,55 +12,86 @@ div.modal-background {
 
     div.modal-container {
         position: relative;
-        width: clamp(18.75rem, 80%, 30rem);
-        padding: clamp(3rem, 10vw, 5rem) 1rem;
-        border-radius: 0.75rem;
+        // width: clamp(18.75rem, 80%, 30rem);
+        // padding: clamp(3rem, 10vw, 5rem) 1rem;
+        padding: 1.5rem;
+        border-radius: 1rem;
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0rem 0.3125rem 0.9375rem;
-        @include flex-box(normal, normal, 5rem, column);
+        // @include flex-box(normal, normal, 5rem, column);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
 
         div.closing-x {
-            color: crimson;
-            position: absolute;
-            top: 0;
-            right: 2%;
-            font-size: 2em;
+            color: var(--incorrect-bg);
+            align-self: flex-end;
+            // position: absolute;
+            // top: 0;
+            // right: 2%;
+            font-size: 2rem;
             cursor: pointer;
         }
 
-        h1 {
-            color: hsl(0, 0%, 12%);
+        i {
+            font-size: 2rem;
+            color: var(--incorrect-bg);
 
+            &.fa-circle-info {
+                color: var(--primary-text-cl);
+            }
+        }
+
+        span {
+            color: hsl(0, 0%, 12%);
+            font-size: 1.5rem;
             text-align: center;
         }
 
         &.confirm {
-            font-size: 1.5rem;
+            padding: 1.5rem 3rem;
+            gap: 2rem;
+
             div.options {
-                @include flex-box(space-around, normal);
+                // @include flex-box(space-around, normal);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1.6rem;
                 > button {
                     font-size: inherit;
-                    padding: 0.625rem 2.5rem;
+                    padding: 0.5rem 2.5rem;
                     background-color: hsl(0, 0%, 40%);
                     color: #fff;
                     border: 0.125rem solid #fff;
-                    border-radius: 0.625rem;
+                    border-radius: 3rem;
                     transition: background-color 500ms;
-
-                    &:hover {
-                        cursor: pointer;
-                        background-color: hsl(0, 0%, 10%);
-                    }
                 }
             }
         }
     }
 }
 
+@media (pointer: fine) {
+    div.modal-background
+        div.modal-container.confirm
+        div.options
+        > button:hover {
+        cursor: pointer;
+        background-color: hsl(0, 0%, 10%);
+    }
+}
+
 @media screen and (max-width: 45.625rem) {
     div.modal-background {
+        box-sizing: border-box;
+        padding-inline: 1rem;
+
         div.modal-container.confirm {
             font-size: 1rem;
+            padding: 2rem;
         }
     }
 }
