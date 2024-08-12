@@ -38,11 +38,18 @@ function Result({ statistics: { correctAnswers, hintsLeft } }) {
                 </span>
             </div>
             <div className="jokers">
+                <span>Jokers used:</span>
                 {Object.entries(hintsLeft).map(([key, value]) => {
                     return (
                         <span key={key}>
-                            <i className={key}></i>
-                            {2 - value} used
+                            <i className={key}>
+                                <span>
+                                    {key.includes('lightbulb')
+                                        ? 'Half Cut'
+                                        : 'Bullseye'}
+                                </span>
+                            </i>
+                            {2 - value}
                         </span>
                     );
                 })}

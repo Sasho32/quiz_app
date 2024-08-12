@@ -7,8 +7,11 @@ header {
     left: 0;
     right: 0;
     padding-block: 0.3125rem;
+    padding-inline-end: 1rem;
     background-color: var(--header-bg);
     @include flex-box();
+    justify-content: flex-end;
+
     box-shadow: 0 0 0.1875rem var(--header-shadow);
 
     > img {

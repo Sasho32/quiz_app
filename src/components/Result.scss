@@ -32,15 +32,17 @@
             color: hsl(0, 0%, 12%);
             flex-basis: 0;
             padding: 0.625rem;
-            @include flex-box(space-between, normal, 0.3rem);
+            @include flex-box(center, center, 0.3rem);
             font-weight: 700;
 
             &.correct {
                 background-color: var(--correct-bg);
+                justify-content: flex-start;
             }
 
             &.incorrect {
                 background-color: var(--incorrect-bg);
+                justify-content: flex-end;
             }
         }
     }
@@ -49,10 +51,23 @@
         > span {
             // color: var(--question-bg);
             color: var(--primary-text-cl);
-            @include flex-box(space-between, normal);
-            border-bottom: 0.07rem solid;
+            @include flex-box(space-between, center);
             padding: 1rem 0;
             font-weight: 600;
+            padding-inline-end: 0.5rem;
+        }
+
+        span:nth-child(2) {
+            border-block: 0.1rem solid;
+        }
+        span:nth-child(3) {
+            border-bottom: 0.1rem solid;
+        }
+
+        > span > i {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
     }
 
